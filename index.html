@@ -4,199 +4,199 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Japteg Singh</title>
-<meta name="description" content="Japteg Singh is a social epidemiologist in Montreal working on who the health system reaches and who it misses.">
+<meta name="description" content="Japteg Singh is an epidemiologist at McGill University studying inequalities in health and access to care.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: one narrow column set off-centre to the left, with wide empty
-   margins. The only loud element is the opening sentence; everything else is small. */
+/* Layout idea: a centred name with a small spaced menu and a hairline, like a journal masthead;
+   below it, one centred reading column. Contact links at the foot of every page. */
 :root {
-  --paper: #fbfbfa;
-  --ink: #17191c;
-  --soft: #6d7278;
-  --hair: #e4e5e3;
-  --accent: #34506b;
-  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --paper: #e9e7e1;
+  --bar: #46604f;
+  --bar-ink: #f2f4ef;
+  --bar-soft: #d2dbd4;
+  --ink: #181b1f;
+  --soft: #575c58;
+  --hair: #d3d0c8;
+  --accent: #3f6a54;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
   color-scheme: light;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #121314;
-    --ink: #ecece9;
-    --soft: #8e9398;
-    --hair: #27292b;
-    --accent: #a9c1d8;
-    color-scheme: dark;
+    --paper: #121513; --bar: #0f261c; --bar-ink: #eef2ec; --bar-soft: #9fb5a7;
+    --ink: #e9eae7; --soft: #9aa39d; --hair: #2a302c; --accent: #8fc7a8; color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #121314;
-  --ink: #ecece9;
-  --soft: #8e9398;
-  --hair: #27292b;
-  --accent: #a9c1d8;
-  color-scheme: dark;
+  --paper: #121513; --bar: #0f261c; --bar-ink: #eef2ec; --bar-soft: #9fb5a7;
+  --ink: #e9eae7; --soft: #9aa39d; --hair: #2a302c; --accent: #8fc7a8; color-scheme: dark;
 }
-
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html, body { margin: 0; }
 body {
-  margin: 0;
-  background: var(--paper);
-  color: var(--ink);
-  font-family: var(--font-body);
-  font-size: 17px;
-  line-height: 1.65;
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 16.5px; line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
-a {
-  color: inherit;
-  text-decoration: underline;
-  text-decoration-color: var(--hair);
-  text-decoration-thickness: 1px;
-  text-underline-offset: 4px;
-  transition: text-decoration-color 0.2s ease, color 0.2s ease;
-}
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--hair);
+    text-decoration-thickness: 1px; text-underline-offset: 4px;
+    transition: color .15s ease, text-decoration-color .15s ease; }
 a:hover { color: var(--accent); text-decoration-color: var(--accent); }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
 
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 28px;
+.topbar-inner {
+  max-width: 920px; margin: 0 auto; padding: 40px clamp(22px, 5vw, 48px) 0;
+  text-align: center;
 }
-.col { max-width: 600px; margin-left: clamp(0px, 12vw, 170px); }
-
-header {
-  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
-  gap: 8px 32px;
-  padding: 36px 0 0;
-  font-size: 0.9rem;
+.topbar { border-top: 5px solid var(--bar); }
+.topbar .name {
+  font-family: var(--font-display); font-weight: 500; font-size: 1.85rem; letter-spacing: .005em;
+  color: var(--ink); text-decoration: none; line-height: 1.15;
 }
-header .name { font-weight: 500; text-decoration: none; }
-header nav { display: flex; flex-wrap: wrap; gap: 6px 26px; }
-header nav a { color: var(--soft); text-decoration: none; }
-header nav a:hover { color: var(--ink); }
-
-.opening { padding: clamp(80px, 16vh, 170px) 0 clamp(70px, 13vh, 140px); }
-.opening h1 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: clamp(2.5rem, 6.4vw, 4.3rem);
-  line-height: 1.06;
-  letter-spacing: -0.012em;
-  margin: 0 0 34px;
-  max-width: 15em;
-  margin-left: clamp(0px, 12vw, 170px);
-  text-wrap: balance;
+.topbar nav { display: flex; justify-content: center; gap: 30px; margin-top: 14px; }
+.topbar nav a {
+  color: var(--soft); text-decoration: none; font-size: .78rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase; padding: 3px 0;
 }
-.opening h1 em { font-style: italic; color: var(--accent); }
-.opening p { margin: 0; color: var(--soft); font-size: 1.06rem; max-width: 30em; }
+.topbar nav a:hover { color: var(--ink); }
+.topbar nav a[aria-current="page"] { color: var(--accent); }
 
-section { padding: 0 0 clamp(70px, 12vh, 120px); }
+/* Main column */
+main { max-width: 920px; margin: 0 auto; padding: 56px clamp(22px, 5vw, 48px) 64px; }
+.measure { max-width: 700px; margin: 0 auto; }
+.lede {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.12; letter-spacing: -0.012em;
+  margin: 0 auto 64px; text-wrap: balance; text-align: center; max-width: 720px;
+}
+.lede em { color: var(--accent); }
+h1.page-title {
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1.1; margin: 0 0 14px; text-align: center;
+}
+.page-intro { color: var(--soft); margin: 0 auto 56px; text-align: center; max-width: 560px; }
+.page-intro a { color: var(--ink); }
+
+section { margin-bottom: 64px; }
 section > h2 {
-  font-family: var(--font-body);
-  font-weight: 400;
-  font-size: 0.84rem;
-  color: var(--soft);
-  margin: 0 0 30px;
-  padding-top: 22px;
-  border-top: 1px solid var(--hair);
+  font-family: var(--font-body); font-size: .78rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--soft); margin: 0 0 22px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--hair);
 }
-.stack { display: grid; gap: 40px; }
-.piece h3 {
-  font-family: var(--font-display);
-  font-weight: 400;
-  font-size: 1.7rem;
-  line-height: 1.2;
-  margin: 0 0 10px;
-  text-wrap: balance;
+.prose p { margin: 0 0 18px; }
+.prose p:last-child { margin-bottom: 0; }
+
+.projects { display: grid; gap: 28px; }
+.projects h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; line-height: 1.25; margin: 0 0 6px; }
+.projects p { margin: 0; }
+
+/* Publications */
+.year-group { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 24px; }
+.year-group + .year-group { margin-top: 30px; }
+.year {
+  font-family: var(--font-display); font-size: 1.15rem; color: var(--soft);
+  font-variant-numeric: tabular-nums; padding-top: 2px;
 }
-.piece p, .prose p { margin: 0; }
-.prose { display: grid; gap: 18px; }
+.entries { display: grid; gap: 26px; }
+.pub .title { font-family: var(--font-display); font-weight: 500; font-size: 1.18rem; line-height: 1.3; margin: 0 0 6px; text-wrap: pretty; }
+.pub .title a { text-decoration: none; }
+.pub .title a:hover { text-decoration: underline; }
+.pub .authors { margin: 0 0 3px; font-size: .9rem; color: var(--soft); }
+.pub .authors b { color: var(--ink); font-weight: 600; }
+.pub .venue { margin: 0; font-size: .9rem; color: var(--soft); }
+.pub .venue i { color: var(--ink); }
+.pub .actions { margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: .78rem; font-weight: 500; letter-spacing: .02em; text-decoration: none;
+  border: 1px solid var(--hair); border-radius: 999px; padding: 2px 11px; color: var(--accent);
+}
+.chip:hover { border-color: var(--accent); text-decoration: none; }
+.status {
+  font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent);
+}
 
-.reach { display: grid; gap: 10px; margin: 0; }
-.reach div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
-.reach dt { color: var(--soft); }
-.reach dd { margin: 0; overflow-wrap: anywhere; }
-.pending { color: var(--soft); font-style: italic; }
+.talks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.talks li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 24px; }
+.talks .when { color: var(--soft); font-variant-numeric: tabular-nums; font-family: var(--font-display); font-size: 1.05rem; }
+.talks .t { font-weight: 500; }
+.talks .w { display: block; color: var(--soft); font-size: .9rem; }
 
-footer { padding: 0 0 56px; font-size: 0.84rem; color: var(--soft); }
+footer {
+  color: var(--soft); font-size: .88rem; border-top: 1px solid var(--hair); padding-top: 20px; margin-top: 24px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+}
+footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+footer .links a { color: var(--soft); text-decoration: none; overflow-wrap: anywhere; }
+footer .links a:hover { color: var(--accent); }
 
+@media (max-width: 600px) {
+  .topbar-inner { padding: 28px 20px 0; }
+  .topbar nav { gap: 22px; }
+  main { padding: 44px 20px 48px; }
+  .lede { margin-bottom: 44px; }
+}
+@media (max-width: 520px) {
+  .year-group, .talks li { grid-template-columns: 1fr; gap: 4px; }
+}
 @media (prefers-reduced-motion: no-preference) {
-  .opening h1, .opening .col { animation: settle 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
-  .opening .col { animation-delay: 0.12s; }
-  @keyframes settle { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-}
-@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-
-@media (max-width: 640px) {
-  body { font-size: 16px; }
-  .page { padding: 0 20px; }
-  header { padding-top: 24px; }
-  .reach div { grid-template-columns: 1fr; gap: 0; }
+  main > .measure > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+  main > .measure > *:nth-child(2) { animation-delay: .06s; }
+  main > .measure > *:nth-child(3) { animation-delay: .12s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 }
 </style>
 </head>
 <body>
-<div class="page">
-
-  <header>
-    <a class="name" href="#top">Japteg Singh</a>
-    <nav aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="name" href="index.html">Japteg Singh</a>
+    <nav aria-label="Pages">
+      <a href="index.html" aria-current="page">About</a>
+      <a href="publications.html">Publications</a>
     </nav>
-  </header>
+  </div>
+</header>
+<main>
+  <div class="measure">
+      <p class="lede">Epidemiologist studying <em>inequalities</em> in health and access to care.</p>
 
-  <main id="top">
-    <div class="opening">
-      <h1>Epidemiologist studying <em>inequalities</em> in health and access to care.</h1>
-      <div class="col">
-        <p>I'm Japteg Singh, based in Montreal. I use population data to find where access to care breaks down, and I work with the people who can do something about it.</p>
-      </div>
-    </div>
-
-    <section id="work">
-      <div class="col">
-        <h2>Work</h2>
-        <div class="stack">
-          <div class="piece">
-            <h3>Cancer screening and immigration</h3>
-            <p>Immigrants to Canada are screened for breast, cervical and colorectal cancer less often than people born here. My doctoral research at McGill asks how large those gaps are and what drives them, so that screening programs know where to act.</p>
-          </div>
-          <div class="piece">
-            <h3>The public health workforce</h3>
-            <p>Public health depends on its nurses, and many are stretched thin. With colleagues at McMaster I track how that workforce has changed over the past decade and what burnout is doing to its capacity.</p>
-          </div>        </div>
-      </div>
-    </section>
-
-    <section id="about">
-      <div class="col">
+      <section id="about">
         <h2>About</h2>
         <div class="prose">
-          <p>I'm a social epidemiologist. I'm interested in how the circumstances of people's lives, such as where they were born and where they live, shape their health and the care they receive.</p>
-          <p>I'm completing a PhD in epidemiology at McGill University, funded by the Fonds de recherche du Québec. Before that I was an epidemiologist at Niagara Region Public Health.</p>
-          <p>I serve as a student board member of the Canadian Society for Epidemiology and Biostatistics, where I work on making the field more equitable, and I previously sat on the board of the Canadian Public Health Association.</p>        </div>
-      </div>
-    </section>
+          <p>I'm a PhD candidate in Epidemiology at McGill University, supervised by Prof. Erin Strumpf. I'm a social epidemiologist: I study how the circumstances of people's lives, such as where they were born, shape their health and whether the health system reaches them.</p>
+          <p>I came to research from public health practice. At Niagara Region Public Health I led the COVID-19 epidemiology portfolio and the region's community health surveys, and before that I evaluated public health programs, from mass immunization clinics to community-based HIV testing. I've also worked as an epidemiologist at the Public Health Agency of Canada and as a statistician at McMaster University's School of Nursing.</p>
+          <p>My doctoral research is funded by the Fonds de recherche du Québec and a Heather Munroe-Blum Studentship for Social Epidemiology. I'm a student board member of the Canadian Society for Epidemiology and Biostatistics and sit on its working group on equity, diversity and inclusion. I hold an MPH and an MSc in Global Health from McMaster University.</p>
+        </div>
+      </section>
 
-    <section id="contact">
-      <div class="col">
-        <h2>Contact</h2>
-        <dl class="reach">
-          <div><dt>Email</dt><dd><a href="mailto:japteg.singh@mail.mcgill.ca">japteg.singh@mail.mcgill.ca</a></dd></div>
-          <div><dt>Elsewhere</dt><dd><a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en">Google Scholar</a>, <a href="https://www.linkedin.com/in/japteg/">LinkedIn</a></dd></div>
-        </dl>
-      </div>
-    </section>
-  </main>
+      <section id="research">
+        <h2>Research</h2>
+        <div class="projects">
+          <div>
+            <h3>Cancer screening and immigration</h3>
+            <p>Immigrants to Canada are screened for breast, cervical and colorectal cancer less often than people born here. My dissertation uses pooled Canadian Community Health Survey data to measure those gaps and break down what drives them, so screening programs know where to act.</p>
+          </div>
+          <div>
+            <h3>The public health workforce</h3>
+            <p>With colleagues at McMaster and Public Health Ontario, I study the people who keep public health running: how Canada's public health nursing workforce has changed over a decade, and how burnout has affected public health workers and physicians since the pandemic.</p>
+          </div>
+        </div>
+        <p style="margin:28px 0 0"><a href="publications.html">See publications and presentations →</a></p>
+      </section>
 
-  <footer><div class="col">© 2026 Japteg Singh</div></footer>
-</div>
+    <footer>
+      <div class="links">
+        <a href="mailto:japteg.singh@mail.mcgill.ca">japteg.singh@mail.mcgill.ca</a>
+        <a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/japteg/">LinkedIn</a>
+      </div>
+      <span>© 2026 Japteg Singh</span>
+    </footer>
+  </div>
+</main>
 </body>
 </html>
