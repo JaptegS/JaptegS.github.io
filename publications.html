@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Publications · Japteg Singh</title>
+<meta name="description" content="Publications and presentations by Japteg Singh, PhD candidate in epidemiology at McGill University.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: a centred name with a small spaced menu and a hairline, like a journal masthead;
+   below it, one centred reading column. Contact links at the foot of every page. */
+:root {
+  --paper: #e9e7e1;
+  --bar: #46604f;
+  --bar-ink: #f2f4ef;
+  --bar-soft: #d2dbd4;
+  --ink: #181b1f;
+  --soft: #575c58;
+  --hair: #d3d0c8;
+  --accent: #3f6a54;
+  --font-display: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-body: "Public Sans", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121513; --bar: #0f261c; --bar-ink: #eef2ec; --bar-soft: #9fb5a7;
+    --ink: #e9eae7; --soft: #9aa39d; --hair: #2a302c; --accent: #8fc7a8; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121513; --bar: #0f261c; --bar-ink: #eef2ec; --bar-soft: #9fb5a7;
+  --ink: #e9eae7; --soft: #9aa39d; --hair: #2a302c; --accent: #8fc7a8; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper); color: var(--ink);
+  font-family: var(--font-body); font-size: 16.5px; line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: underline; text-decoration-color: var(--hair);
+    text-decoration-thickness: 1px; text-underline-offset: 4px;
+    transition: color .15s ease, text-decoration-color .15s ease; }
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+.topbar-inner {
+  max-width: 920px; margin: 0 auto; padding: 40px clamp(22px, 5vw, 48px) 0;
+  text-align: center;
+}
+.topbar { border-top: 5px solid var(--bar); }
+.topbar .name {
+  font-family: var(--font-display); font-weight: 500; font-size: 1.85rem; letter-spacing: .005em;
+  color: var(--ink); text-decoration: none; line-height: 1.15;
+}
+.topbar nav { display: flex; justify-content: center; gap: 30px; margin-top: 14px; }
+.topbar nav a {
+  color: var(--soft); text-decoration: none; font-size: .78rem; font-weight: 500;
+  letter-spacing: .16em; text-transform: uppercase; padding: 3px 0;
+}
+.topbar nav a:hover { color: var(--ink); }
+.topbar nav a[aria-current="page"] { color: var(--accent); }
+
+/* Main column */
+main { max-width: 920px; margin: 0 auto; padding: 56px clamp(22px, 5vw, 48px) 64px; }
+.measure { max-width: 700px; margin: 0 auto; }
+.lede {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.12; letter-spacing: -0.012em;
+  margin: 0 auto 64px; text-wrap: balance; text-align: center; max-width: 720px;
+}
+.lede em { color: var(--accent); }
+h1.page-title {
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(2.2rem, 4vw, 2.9rem);
+  line-height: 1.1; margin: 0 0 14px; text-align: center;
+}
+.page-intro { color: var(--soft); margin: 0 auto 56px; text-align: center; max-width: 560px; }
+.page-intro a { color: var(--ink); }
+
+section { margin-bottom: 64px; }
+section > h2 {
+  font-family: var(--font-body); font-size: .78rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--soft); margin: 0 0 22px;
+  padding-bottom: 10px; border-bottom: 1px solid var(--hair);
+}
+.prose p { margin: 0 0 18px; }
+.prose p:last-child { margin-bottom: 0; }
+
+.projects { display: grid; gap: 28px; }
+.projects h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.35rem; line-height: 1.25; margin: 0 0 6px; }
+.projects p { margin: 0; }
+
+/* Publications */
+.year-group { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 0 24px; }
+.year-group + .year-group { margin-top: 30px; }
+.year {
+  font-family: var(--font-display); font-size: 1.15rem; color: var(--soft);
+  font-variant-numeric: tabular-nums; padding-top: 2px;
+}
+.entries { display: grid; gap: 26px; }
+.pub .title { font-family: var(--font-display); font-weight: 500; font-size: 1.18rem; line-height: 1.3; margin: 0 0 6px; text-wrap: pretty; }
+.pub .title a { text-decoration: none; }
+.pub .title a:hover { text-decoration: underline; }
+.pub .authors { margin: 0 0 3px; font-size: .9rem; color: var(--soft); }
+.pub .authors b { color: var(--ink); font-weight: 600; }
+.pub .venue { margin: 0; font-size: .9rem; color: var(--soft); }
+.pub .venue i { color: var(--ink); }
+.pub .actions { margin: 8px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  font-size: .78rem; font-weight: 500; letter-spacing: .02em; text-decoration: none;
+  border: 1px solid var(--hair); border-radius: 999px; padding: 2px 11px; color: var(--accent);
+}
+.chip:hover { border-color: var(--accent); text-decoration: none; }
+.status {
+  font-size: .75rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent);
+}
+
+.talks { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.talks li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 24px; }
+.talks .when { color: var(--soft); font-variant-numeric: tabular-nums; font-family: var(--font-display); font-size: 1.05rem; }
+.talks .t { font-weight: 500; }
+.talks .w { display: block; color: var(--soft); font-size: .9rem; }
+
+footer {
+  color: var(--soft); font-size: .88rem; border-top: 1px solid var(--hair); padding-top: 20px; margin-top: 24px;
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+}
+footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+footer .links a { color: var(--soft); text-decoration: none; overflow-wrap: anywhere; }
+footer .links a:hover { color: var(--accent); }
+
+@media (max-width: 600px) {
+  .topbar-inner { padding: 28px 20px 0; }
+  .topbar nav { gap: 22px; }
+  main { padding: 44px 20px 48px; }
+  .lede { margin-bottom: 44px; }
+}
+@media (max-width: 520px) {
+  .year-group, .talks li { grid-template-columns: 1fr; gap: 4px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  main > .measure > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+  main > .measure > *:nth-child(2) { animation-delay: .06s; }
+  main > .measure > *:nth-child(3) { animation-delay: .12s; }
+  @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="name" href="index.html">Japteg Singh</a>
+    <nav aria-label="Pages">
+      <a href="index.html">About</a>
+      <a href="publications.html" aria-current="page">Publications</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <div class="measure">
+      <h1 class="page-title">Publications</h1>
+      <p class="page-intro">Peer-reviewed articles, work under review and selected presentations. A current list is also on <a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en">Google Scholar</a>.</p>
+
+      <section id="under-review">
+        <h2>Under review</h2>
+        <div class="entries">
+            <article class="pub">
+              <h3 class="title">Trends in Canada&#x27;s Public Health Nursing Workforce (2013–2023)</h3>
+              <p class="authors"><b>Singh J</b>, Anderson L, Jack S, Dobbins M, Neil-Sztramko S, Neudorf C, Belita E</p>
+              <p class="venue"><span class="status">Submitted</span> · Frontiers in Public Health</p>
+            </article>
+        </div>
+      </section>
+
+      <section id="articles">
+        <h2>Peer-reviewed articles</h2>
+        <div class="year-group">
+          <div class="year">2026</div>
+          <div class="entries">
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.1186/s12889-026-29861-1">Rebuilding wellbeing in public health: a qualitative study of physician burnout and recovery in Canada</a></h3>
+              <p class="authors">Sun X, Yassa P, Fatima SA, Hao XYC, Alvarez E, Anderson LN, Malkin I, <b>Singh J</b>, Apatu E, Piggott T, Belita E, Boamah SA, Hopkins JP</p>
+              <p class="venue"><i>BMC Public Health</i>. 2026.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.1186/s12889-026-29861-1">Read article ↗</a></p>
+            </article>
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.17269/s41997-026-01225-7">Collaboratively building teaching resources for EDI in epidemiology and biostatistics</a></h3>
+              <p class="authors"><b>Singh J</b>, Coleman T, Nyambi A, Pittman T, Dogget A, Andre F, Dupuis J, Fuller D</p>
+              <p class="venue"><i>Canadian Journal of Public Health</i>. 2026:1–7.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.17269/s41997-026-01225-7">Read article ↗</a></p>
+            </article>
+          </div>
+        </div>
+        <div class="year-group">
+          <div class="year">2025</div>
+          <div class="entries">
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.1371/journal.pmen.0000527">Burnout among public health physicians and residents in Canada following the COVID-19 pandemic: A cross-sectional study</a></h3>
+              <p class="authors">Fatima SA, Hao XY, Sun D, Malkin I, Alvarez E, Anderson LN, Poon DE-O, <b>Singh J</b>, Apatu E, Verschoor CP, Piggott T, Belita E, Boamah S, Sutton A, Zendo Z, Hopkins J</p>
+              <p class="venue"><i>PLOS Mental Health</i>. 2025;2(12).</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.1371/journal.pmen.0000527">Read article ↗</a></p>
+            </article>
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.1371/journal.pone.0322118">A pilot pragmatic randomized controlled trial of a 12-month Healthy Lifestyles Program: A collaborative care model for chronic conditions addressing behavioural change</a></h3>
+              <p class="authors"><b>Singh J</b>, Feeny D, Ganann R, Lavis J, Lokker C, Mbuagbaw L, Qutob M, Samaan Z, Sutton A, Walli-Attaei M, Smith S, Alvarez E</p>
+              <p class="venue"><i>PLOS ONE</i>. 2025.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.1371/journal.pone.0322118">Read article ↗</a></p>
+            </article>
+          </div>
+        </div>
+        <div class="year-group">
+          <div class="year">2024</div>
+          <div class="entries">
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.1186/s12889-023-17572-w">Burnout among public health workers in Canada: a cross-sectional study</a></h3>
+              <p class="authors"><b>Singh J</b>, Poon DE-O, Alvarez E, Anderson L, Verschoor CP, Sutton A, Zendo Z, Piggott T, Apatu E, Churipuy D, Culbert I, Hopkins JP</p>
+              <p class="venue"><i>BMC Public Health</i>. 2024;24(1):48.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.1186/s12889-023-17572-w">Read article ↗</a></p>
+            </article>
+          </div>
+        </div>
+        <div class="year-group">
+          <div class="year">2022</div>
+          <div class="entries">
+            <article class="pub">
+              <h3 class="title">A quality improvement initiative to implement the Serious Illness Care Program on hospital medical wards: impact on patient and clinician experience</h3>
+              <p class="authors">You JJ, <b>Singh J</b>, Simon J, et al.</p>
+              <p class="venue"><i>Canadian Journal of General Internal Medicine</i>. 2022;17(1):e29–e51.</p>
+            </article>
+          </div>
+        </div>
+        <div class="year-group">
+          <div class="year">2021</div>
+          <div class="entries">
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.1001/jamanetworkopen.2021.21517">Clinicians&#x27; perspectives after implementation of the Serious Illness Care Program: a qualitative study</a></h3>
+              <p class="authors">Lagrotteria A, Swinton M, Simon J, King S, Boryski G, Ma I, Dunne F, <b>Singh J</b>, Bernacki R, You JJ</p>
+              <p class="venue"><i>JAMA Network Open</i>. 2021;4(8):e2121517.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.1001/jamanetworkopen.2021.21517">Read article ↗</a></p>
+            </article>
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.22374/cjgim.v16i3.484">Implementation of the Serious Illness Care Program on hospital medical wards: methodology for a multi-site quality improvement initiative</a></h3>
+              <p class="authors"><b>Singh J</b>, Simon J, Ma I, Dunne F, Dugan A, Wooller K, Munene P, Kobewka D, Jayaraman D, Swinton M, Lagrotteria A, Bernacki R, You J</p>
+              <p class="venue"><i>Canadian Journal of General Internal Medicine</i>. 2021;16(3):e40–e59.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.22374/cjgim.v16i3.484">Read article ↗</a></p>
+            </article>
+          </div>
+        </div>
+        <div class="year-group">
+          <div class="year">2020</div>
+          <div class="entries">
+            <article class="pub">
+              <h3 class="title"><a href="https://doi.org/10.23937/2469-5793/1510131">Investigating the relationship between mental health and goal attainment for individuals participating in a Healthy Lifestyles Program: a pragmatic randomized pilot trial</a></h3>
+              <p class="authors">Sutton A, Mbuagbaw L, Samaan Z, <b>Singh J</b>, Alvarez E</p>
+              <p class="venue"><i>Family Medicine and Disease Prevention</i>. 2020.</p>
+              <p class="actions"><a class="chip" href="https://doi.org/10.23937/2469-5793/1510131">Read article ↗</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="presentations">
+        <h2>Selected presentations</h2>
+        <ul class="talks">
+          <li><span class="when">2026</span><span><span class="t">Unraveling cancer disparities: a population-level study of immigrants and cancer screening participation in Canada</span><span class="w">Epidemiology and Biostatistics Symposium, Montreal</span></span></li>
+          <li><span class="when">2025</span><span><span class="t">Trends in the public health nursing workforce: a decade of demographic and workforce change (2013–2023)</span><span class="w">Oral presentations at CSEB (Montreal) and CAHSPR (Ottawa); poster at the Canadian Public Health Conference (Winnipeg)</span></span></li>
+          <li><span class="when">2025</span><span><span class="t">Collaboratively building teaching resources for EDI in epidemiology and biostatistics</span><span class="w">Pre-conference workshop, Canadian Society for Epidemiology and Biostatistics, Montreal</span></span></li>
+          <li><span class="when">2024</span><span><span class="t">Burnout among public health workers in Canada: a cross-sectional study</span><span class="w">Oral presentations at CAHSPR (Ottawa) and Public Health Day at McGill; poster at Public Health 2024 (Halifax)</span></span></li>
+          <li><span class="when">2023</span><span><span class="t">Public health burnout: results from a 2023 Canadian public health workforce survey</span><span class="w">Public Health Ontario Rounds, Toronto · <a href="https://youtu.be/5sKhIEMs4YE">Watch</a></span></span></li>
+          <li><span class="when">2022</span><span><span class="t">Feasibility and implementation of a year-long Healthy Lifestyles Program: final evaluation and 6-month follow-up</span><span class="w">Canadian Collaborative Mental Health Care Conference, Quebec City</span></span></li>
+        </ul>
+      </section>
+
+    <footer>
+      <div class="links">
+        <a href="mailto:japteg.singh@mail.mcgill.ca">japteg.singh@mail.mcgill.ca</a>
+        <a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en">Google Scholar</a>
+        <a href="https://www.linkedin.com/in/japteg/">LinkedIn</a>
+      </div>
+      <span>© 2026 Japteg Singh</span>
+    </footer>
+  </div>
+</main>
+</body>
+</html>
