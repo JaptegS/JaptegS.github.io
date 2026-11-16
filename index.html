@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Japteg Singh</title>
+<meta name="description" content="Japteg Singh is a social epidemiologist in Montreal working on who the health system reaches and who it misses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* Layout idea: one narrow column set off-centre to the left, with wide empty
+   margins. The only loud element is the opening sentence; everything else is small. */
+:root {
+  --paper: #fbfbfa;
+  --ink: #17191c;
+  --soft: #6d7278;
+  --hair: #e4e5e3;
+  --accent: #34506b;
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-body: "Hanken Grotesk", "Helvetica Neue", Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121314;
+    --ink: #ecece9;
+    --soft: #8e9398;
+    --hair: #27292b;
+    --accent: #a9c1d8;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121314;
+  --ink: #ecece9;
+  --soft: #8e9398;
+  --hair: #27292b;
+  --accent: #a9c1d8;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--hair);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+  transition: text-decoration-color 0.2s ease, color 0.2s ease;
+}
+a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 28px;
+}
+.col { max-width: 600px; margin-left: clamp(0px, 12vw, 170px); }
+
+header {
+  display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline;
+  gap: 8px 32px;
+  padding: 36px 0 0;
+  font-size: 0.9rem;
+}
+header .name { font-weight: 500; text-decoration: none; }
+header nav { display: flex; flex-wrap: wrap; gap: 6px 26px; }
+header nav a { color: var(--soft); text-decoration: none; }
+header nav a:hover { color: var(--ink); }
+
+.opening { padding: clamp(80px, 16vh, 170px) 0 clamp(70px, 13vh, 140px); }
+.opening h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.5rem, 6.4vw, 4.3rem);
+  line-height: 1.06;
+  letter-spacing: -0.012em;
+  margin: 0 0 34px;
+  max-width: 15em;
+  margin-left: clamp(0px, 12vw, 170px);
+  text-wrap: balance;
+}
+.opening h1 em { font-style: italic; color: var(--accent); }
+.opening p { margin: 0; color: var(--soft); font-size: 1.06rem; max-width: 30em; }
+
+section { padding: 0 0 clamp(70px, 12vh, 120px); }
+section > h2 {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.84rem;
+  color: var(--soft);
+  margin: 0 0 30px;
+  padding-top: 22px;
+  border-top: 1px solid var(--hair);
+}
+.stack { display: grid; gap: 40px; }
+.piece h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 1.2;
+  margin: 0 0 10px;
+  text-wrap: balance;
+}
+.piece p, .prose p { margin: 0; }
+.prose { display: grid; gap: 18px; }
+
+.reach { display: grid; gap: 10px; margin: 0; }
+.reach div { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; }
+.reach dt { color: var(--soft); }
+.reach dd { margin: 0; overflow-wrap: anywhere; }
+.pending { color: var(--soft); font-style: italic; }
+
+footer { padding: 0 0 56px; font-size: 0.84rem; color: var(--soft); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .opening h1, .opening .col { animation: settle 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  .opening .col { animation-delay: 0.12s; }
+  @keyframes settle { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+@media (max-width: 640px) {
+  body { font-size: 16px; }
+  .page { padding: 0 20px; }
+  header { padding-top: 24px; }
+  .reach div { grid-template-columns: 1fr; gap: 0; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <a class="name" href="#top">Japteg Singh</a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="opening">
+      <h1>Epidemiologist studying <em>inequalities</em> in health and access to care.</h1>
+      <div class="col">
+        <p>I'm Japteg Singh, based in Montreal. I use population data to find where access to care breaks down, and I work with the people who can do something about it.</p>
+      </div>
+    </div>
+
+    <section id="work">
+      <div class="col">
+        <h2>Work</h2>
+        <div class="stack">
+          <div class="piece">
+            <h3>Cancer screening and immigration</h3>
+            <p>Immigrants to Canada are screened for breast, cervical and colorectal cancer less often than people born here. My doctoral research at McGill asks how large those gaps are and what drives them, so that screening programs know where to act.</p>
+          </div>
+          <div class="piece">
+            <h3>The public health workforce</h3>
+            <p>Public health depends on its nurses, and many are stretched thin. With colleagues at McMaster I track how that workforce has changed over the past decade and what burnout is doing to its capacity.</p>
+          </div>        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="col">
+        <h2>About</h2>
+        <div class="prose">
+          <p>I'm a social epidemiologist. I'm interested in how the circumstances of people's lives, such as where they were born and where they live, shape their health and the care they receive.</p>
+          <p>I'm completing a PhD in epidemiology at McGill University, funded by the Fonds de recherche du Québec. Before that I was an epidemiologist at Niagara Region Public Health.</p>
+          <p>I serve as a student board member of the Canadian Society for Epidemiology and Biostatistics, where I work on making the field more equitable, and I previously sat on the board of the Canadian Public Health Association.</p>        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="col">
+        <h2>Contact</h2>
+        <dl class="reach">
+          <div><dt>Email</dt><dd><a href="mailto:japteg.singh@mail.mcgill.ca">japteg.singh@mail.mcgill.ca</a></dd></div>
+          <div><dt>Elsewhere</dt><dd><a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en">Google Scholar</a>, <a href="https://www.linkedin.com/in/japteg/">LinkedIn</a></dd></div>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="col">© 2026 Japteg Singh</div></footer>
+</div>
+</body>
+</html>
