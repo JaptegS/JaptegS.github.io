@@ -110,6 +110,7 @@ section > h2 {
 .pub .venue i { color: var(--ink); }
 .pub .actions { margin: 8px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .altmetric-embed { line-height: 0; }
+.cites { font-size: .8rem; color: var(--soft); font-variant-numeric: tabular-nums; }
 .chip {
   font-size: .78rem; font-weight: 500; letter-spacing: .02em; text-decoration: none;
   border: 1px solid var(--hair); border-radius: 999px; padding: 2px 11px; color: var(--accent);
@@ -291,5 +292,23 @@ footer .links a:hover { color: var(--accent); }
   </div>
 </main>
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+<script>
+/* Live citation counts from OpenAlex (openalex.org), looked up by each paper's DOI */
+document.querySelectorAll('.pub .actions').forEach(function (row) {
+  var link = row.querySelector('a.chip[href*="doi.org/"]');
+  if (!link) return;
+  var doi = link.getAttribute('href').split('doi.org/')[1];
+  fetch('https://api.openalex.org/works/https://doi.org/' + doi + '?select=cited_by_count')
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d || !d.cited_by_count) return;
+      var span = document.createElement('span');
+      span.className = 'cites';
+      span.textContent = 'Cited by ' + d.cited_by_count;
+      link.insertAdjacentElement('afterend', span);
+    })
+    .catch(function () {});
+});
+</script>
 </body>
 </html>
