@@ -305,7 +305,7 @@ document.querySelectorAll('.pub .actions').forEach(function (row) {
       var span = document.createElement('span');
       span.className = 'cites';
       span.textContent = 'Cited by ' + d.cited_by_count;
-      link.insertAdjacentElement('afterend', span);
+      row.appendChild(span);
     })
     .catch(function () {});
 });
