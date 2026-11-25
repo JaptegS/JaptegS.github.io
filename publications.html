@@ -204,22 +204,17 @@ footer .links a:hover { color: var(--accent); }
 
       <p class="filter-empty is-hidden" id="filter-empty">Nothing here yet.</p>
 
-      <section id="under-review">
-        <h2>Under review</h2>
-        <div class="entries">
-            <article class="pub" data-topic="workforce">
-              <h3 class="title">Trends in Canada&#x27;s Public Health Nursing Workforce (2013–2023)</h3>
-              <p class="authors"><b>Singh J</b>, Anderson L, Jack S, Dobbins M, Neil-Sztramko S, Neudorf C, Belita E</p>
-              <p class="venue"><span class="status">Submitted</span> · Frontiers in Public Health</p>
-            </article>
-        </div>
-      </section>
-
       <section id="articles">
         <h2>Peer-reviewed articles</h2>
         <div class="year-group">
           <div class="year">2026</div>
           <div class="entries">
+            <article class="pub" data-topic="workforce">
+              <h3 class="title"><a href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1961704/abstract" target="_blank" rel="noopener">Trends in Canada&#x27;s public health nursing workforce (2013–2023)</a></h3>
+              <p class="authors"><b>Singh J</b>, Anderson L, Jack S, Dobbins M, Neil-Sztramko S, Neudorf C, Belita E</p>
+              <p class="venue"><i>Frontiers in Public Health</i>. 2026;14:1961704. In press.</p>
+              <div class="actions"><a class="chip" href="https://www.frontiersin.org/journals/public-health/articles/10.3389/fpubh.2026.1961704/abstract" target="_blank" rel="noopener">Read article ↗</a></div>
+            </article>
             <article class="pub" data-topic="workforce">
               <h3 class="title"><a href="https://doi.org/10.1186/s12889-026-29861-1" target="_blank" rel="noopener">Rebuilding wellbeing in public health: a qualitative study of physician burnout and recovery in Canada</a></h3>
               <p class="authors">Sun X, Yassa P, Fatima SA, Hao XYC, Alvarez E, Anderson LN, Malkin I, <b>Singh J</b>, Apatu E, Piggott T, Belita E, Boamah SA, Hopkins JP</p>
@@ -335,19 +330,12 @@ footer .links a:hover { color: var(--accent); }
   var stats = document.getElementById('stats');
   var totalCites = 0, pending = 0;
 
-  /* First-author marker */
+  /* Mark first-author papers (used by the First author filter) */
   document.querySelectorAll('.pub').forEach(function (pub) {
     var authors = pub.querySelector('.authors');
     if (authors && authors.firstElementChild && authors.firstElementChild.tagName === 'B' &&
         authors.innerHTML.trim().indexOf('<b>') === 0) {
       pub.dataset.first = 'true';
-      var venue = pub.querySelector('.venue');
-      if (venue) {
-        var tag = document.createElement('span');
-        tag.className = 'first-tag';
-        tag.textContent = 'First author';
-        venue.appendChild(tag);
-      }
     }
   });
 
