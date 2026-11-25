@@ -363,7 +363,7 @@ footer .links a:hover { color: var(--accent); }
         var span = document.createElement('span');
         span.className = 'cites';
         span.textContent = 'Cited by ' + d.cited_by_count;
-        row.appendChild(span);
+        link.insertAdjacentElement('afterend', span);
       })
       .catch(function () {})
       .then(function () { pending--; renderStats(); });
