@@ -77,7 +77,7 @@ h1.page-title {
   font-family: var(--font-display); font-weight: 400; font-size: clamp(2.2rem, 4vw, 2.9rem);
   line-height: 1.1; margin: 0 0 14px; text-align: center;
 }
-.page-intro { color: var(--soft); margin: 0 auto 56px; text-align: center; max-width: 560px; }
+.page-intro { color: var(--soft); margin: 0 auto 14px; text-align: center; max-width: 560px; }
 .page-intro a { color: var(--ink); }
 
 section { margin-bottom: 64px; }
@@ -110,6 +110,20 @@ section > h2 {
 .pub .venue i { color: var(--ink); }
 .pub .actions { margin: 8px 0 0; display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .altmetric-embed { line-height: 0; }
+.stats { text-align: center; color: var(--soft); font-size: .88rem; margin: 0 auto 26px; font-variant-numeric: tabular-nums; min-height: 1.4em; }
+.filters { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 0 auto 52px; max-width: 640px; }
+.filter {
+  font: inherit; font-size: .78rem; font-weight: 500; letter-spacing: .02em; cursor: pointer;
+  background: transparent; color: var(--soft); border: 1px solid var(--hair); border-radius: 999px; padding: 3px 12px;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
+}
+.filter:hover { color: var(--accent); border-color: var(--accent); }
+.filter[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.filter:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.first-tag { font-size: .7rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-left: 8px; white-space: nowrap; }
+.is-hidden { display: none !important; }
+.filter-empty { color: var(--soft); font-size: .92rem; text-align: center; }
+
 .cites { font-size: .8rem; color: var(--soft); font-variant-numeric: tabular-nums; }
 .chip {
   font-size: .78rem; font-weight: 500; letter-spacing: .02em; text-decoration: none;
@@ -166,12 +180,24 @@ footer .links a:hover { color: var(--accent); }
 <main>
   <div class="measure">
       <h1 class="page-title">Publications</h1>
-      <p class="page-intro">Peer-reviewed articles, work under review and selected presentations. A current list is also on <a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      <p class="page-intro">A full list is on <a href="https://scholar.google.com/citations?user=2znlkowAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>.</p>
+      <p class="stats" id="stats"></p>
+      <div class="filters" role="group" aria-label="Filter publications">
+        <button type="button" class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="filter" data-filter="first" aria-pressed="false">First author</button>
+        <button type="button" class="filter" data-filter="workforce" aria-pressed="false">Burnout &amp; workforce</button>
+        <button type="button" class="filter" data-filter="serious" aria-pressed="false">Serious illness care</button>
+        <button type="button" class="filter" data-filter="chronic" aria-pressed="false">Chronic disease care</button>
+        <button type="button" class="filter" data-filter="screening" aria-pressed="false">Screening &amp; immigration</button>
+        <button type="button" class="filter" data-filter="teaching" aria-pressed="false">Teaching &amp; EDI</button>
+      </div>
+
+      <p class="filter-empty is-hidden" id="filter-empty">Nothing here yet.</p>
 
       <section id="under-review">
         <h2>Under review</h2>
         <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="workforce">
               <h3 class="title">Trends in Canada&#x27;s Public Health Nursing Workforce (2013–2023)</h3>
               <p class="authors"><b>Singh J</b>, Anderson L, Jack S, Dobbins M, Neil-Sztramko S, Neudorf C, Belita E</p>
               <p class="venue"><span class="status">Submitted</span> · Frontiers in Public Health</p>
@@ -184,13 +210,13 @@ footer .links a:hover { color: var(--accent); }
         <div class="year-group">
           <div class="year">2026</div>
           <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="workforce">
               <h3 class="title"><a href="https://doi.org/10.1186/s12889-026-29861-1" target="_blank" rel="noopener">Rebuilding wellbeing in public health: a qualitative study of physician burnout and recovery in Canada</a></h3>
               <p class="authors">Sun X, Yassa P, Fatima SA, Hao XYC, Alvarez E, Anderson LN, Malkin I, <b>Singh J</b>, Apatu E, Piggott T, Belita E, Boamah SA, Hopkins JP</p>
               <p class="venue"><i>BMC Public Health</i>. 2026.</p>
               <div class="actions"><a class="chip" href="https://doi.org/10.1186/s12889-026-29861-1" target="_blank" rel="noopener">Read article ↗</a><div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1186/s12889-026-29861-1" data-hide-no-mentions="true"></div></div>
             </article>
-            <article class="pub">
+            <article class="pub" data-topic="teaching">
               <h3 class="title"><a href="https://doi.org/10.17269/s41997-026-01225-7" target="_blank" rel="noopener">Collaboratively building teaching resources for EDI in epidemiology and biostatistics</a></h3>
               <p class="authors"><b>Singh J</b>, Coleman T, Nyambi A, Pittman T, Dogget A, Andre F, Dupuis J, Fuller D</p>
               <p class="venue"><i>Canadian Journal of Public Health</i>. 2026:1–7.</p>
@@ -201,13 +227,13 @@ footer .links a:hover { color: var(--accent); }
         <div class="year-group">
           <div class="year">2025</div>
           <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="workforce">
               <h3 class="title"><a href="https://doi.org/10.1371/journal.pmen.0000527" target="_blank" rel="noopener">Burnout among public health physicians and residents in Canada following the COVID-19 pandemic: A cross-sectional study</a></h3>
               <p class="authors">Fatima SA, Hao XY, Sun D, Malkin I, Alvarez E, Anderson LN, Poon DE-O, <b>Singh J</b>, Apatu E, Verschoor CP, Piggott T, Belita E, Boamah S, Sutton A, Zendo Z, Hopkins J</p>
               <p class="venue"><i>PLOS Mental Health</i>. 2025;2(12).</p>
               <div class="actions"><a class="chip" href="https://doi.org/10.1371/journal.pmen.0000527" target="_blank" rel="noopener">Read article ↗</a><div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1371/journal.pmen.0000527" data-hide-no-mentions="true"></div></div>
             </article>
-            <article class="pub">
+            <article class="pub" data-topic="chronic">
               <h3 class="title"><a href="https://doi.org/10.1371/journal.pone.0322118" target="_blank" rel="noopener">A pilot pragmatic randomized controlled trial of a 12-month Healthy Lifestyles Program: A collaborative care model for chronic conditions addressing behavioural change</a></h3>
               <p class="authors"><b>Singh J</b>, Feeny D, Ganann R, Lavis J, Lokker C, Mbuagbaw L, Qutob M, Samaan Z, Sutton A, Walli-Attaei M, Smith S, Alvarez E</p>
               <p class="venue"><i>PLOS ONE</i>. 2025.</p>
@@ -218,7 +244,7 @@ footer .links a:hover { color: var(--accent); }
         <div class="year-group">
           <div class="year">2024</div>
           <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="workforce">
               <h3 class="title"><a href="https://doi.org/10.1186/s12889-023-17572-w" target="_blank" rel="noopener">Burnout among public health workers in Canada: a cross-sectional study</a></h3>
               <p class="authors"><b>Singh J</b>, Poon DE-O, Alvarez E, Anderson L, Verschoor CP, Sutton A, Zendo Z, Piggott T, Apatu E, Churipuy D, Culbert I, Hopkins JP</p>
               <p class="venue"><i>BMC Public Health</i>. 2024;24(1):48.</p>
@@ -229,7 +255,7 @@ footer .links a:hover { color: var(--accent); }
         <div class="year-group">
           <div class="year">2022</div>
           <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="serious">
               <h3 class="title"><a href="https://doi.org/10.22374/cjgim.v17i1.528" target="_blank" rel="noopener">A quality improvement initiative to implement the Serious Illness Care Program on hospital medical wards: impact on patient and clinician experience</a></h3>
               <p class="authors">You JJ, <b>Singh J</b>, Simon J, et al.</p>
               <p class="venue"><i>Canadian Journal of General Internal Medicine</i>. 2022;17(1):e29–e51.</p>
@@ -240,13 +266,13 @@ footer .links a:hover { color: var(--accent); }
         <div class="year-group">
           <div class="year">2021</div>
           <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="serious">
               <h3 class="title"><a href="https://doi.org/10.1001/jamanetworkopen.2021.21517" target="_blank" rel="noopener">Clinicians&#x27; perspectives after implementation of the Serious Illness Care Program: a qualitative study</a></h3>
               <p class="authors">Lagrotteria A, Swinton M, Simon J, King S, Boryski G, Ma I, Dunne F, <b>Singh J</b>, Bernacki R, You JJ</p>
               <p class="venue"><i>JAMA Network Open</i>. 2021;4(8):e2121517.</p>
               <div class="actions"><a class="chip" href="https://doi.org/10.1001/jamanetworkopen.2021.21517" target="_blank" rel="noopener">Read article ↗</a><div class="altmetric-embed" data-badge-type="donut" data-badge-popover="right" data-doi="10.1001/jamanetworkopen.2021.21517" data-hide-no-mentions="true"></div></div>
             </article>
-            <article class="pub">
+            <article class="pub" data-topic="serious">
               <h3 class="title"><a href="https://doi.org/10.22374/cjgim.v16i3.484" target="_blank" rel="noopener">Implementation of the Serious Illness Care Program on hospital medical wards: methodology for a multi-site quality improvement initiative</a></h3>
               <p class="authors"><b>Singh J</b>, Simon J, Ma I, Dunne F, Dugan A, Wooller K, Munene P, Kobewka D, Jayaraman D, Swinton M, Lagrotteria A, Bernacki R, You J</p>
               <p class="venue"><i>Canadian Journal of General Internal Medicine</i>. 2021;16(3):e40–e59.</p>
@@ -257,7 +283,7 @@ footer .links a:hover { color: var(--accent); }
         <div class="year-group">
           <div class="year">2020</div>
           <div class="entries">
-            <article class="pub">
+            <article class="pub" data-topic="chronic">
               <h3 class="title"><a href="https://doi.org/10.23937/2469-5793/1510131" target="_blank" rel="noopener">Investigating the relationship between mental health and goal attainment for individuals participating in a Healthy Lifestyles Program: a pragmatic randomized pilot trial</a></h3>
               <p class="authors">Sutton A, Mbuagbaw L, Samaan Z, <b>Singh J</b>, Alvarez E</p>
               <p class="venue"><i>Family Medicine and Disease Prevention</i>. 2020.</p>
@@ -270,12 +296,12 @@ footer .links a:hover { color: var(--accent); }
       <section id="presentations">
         <h2>Selected presentations</h2>
         <ul class="talks">
-          <li><span class="when">2026</span><span><span class="t">Unraveling cancer disparities: a population-level study of immigrants and cancer screening participation in Canada</span><span class="w">Epidemiology and Biostatistics Symposium, Montreal</span></span></li>
-          <li><span class="when">2025</span><span><span class="t">Trends in the public health nursing workforce: a decade of demographic and workforce change (2013–2023)</span><span class="w">Oral presentations at CSEB (Montreal) and CAHSPR (Ottawa); poster at the Canadian Public Health Conference (Winnipeg)</span></span></li>
-          <li><span class="when">2025</span><span><span class="t">Collaboratively building teaching resources for EDI in epidemiology and biostatistics</span><span class="w">Pre-conference workshop, Canadian Society for Epidemiology and Biostatistics, Montreal</span></span></li>
-          <li><span class="when">2024</span><span><span class="t">Burnout among public health workers in Canada: a cross-sectional study</span><span class="w">Oral presentations at CAHSPR (Ottawa) and Public Health Day at McGill; poster at Public Health 2024 (Halifax)</span></span></li>
-          <li><span class="when">2023</span><span><span class="t">Public health burnout: results from a 2023 Canadian public health workforce survey</span><span class="w">Public Health Ontario Rounds, Toronto · <a href="https://youtu.be/5sKhIEMs4YE" target="_blank" rel="noopener">Watch</a></span></span></li>
-          <li><span class="when">2022</span><span><span class="t">Feasibility and implementation of a year-long Healthy Lifestyles Program: final evaluation and 6-month follow-up</span><span class="w">Canadian Collaborative Mental Health Care Conference, Quebec City</span></span></li>
+          <li data-topic="screening"><span class="when">2026</span><span><span class="t">Unraveling cancer disparities: a population-level study of immigrants and cancer screening participation in Canada</span><span class="w">Epidemiology and Biostatistics Symposium, Montreal</span></span></li>
+          <li data-topic="workforce"><span class="when">2025</span><span><span class="t">Trends in the public health nursing workforce: a decade of demographic and workforce change (2013–2023)</span><span class="w">Oral presentations at CSEB (Montreal) and CAHSPR (Ottawa); poster at the Canadian Public Health Conference (Winnipeg)</span></span></li>
+          <li data-topic="teaching"><span class="when">2025</span><span><span class="t">Collaboratively building teaching resources for EDI in epidemiology and biostatistics</span><span class="w">Pre-conference workshop, Canadian Society for Epidemiology and Biostatistics, Montreal</span></span></li>
+          <li data-topic="workforce"><span class="when">2024</span><span><span class="t">Burnout among public health workers in Canada: a cross-sectional study</span><span class="w">Oral presentations at CAHSPR (Ottawa) and Public Health Day at McGill; poster at Public Health 2024 (Halifax)</span></span></li>
+          <li data-topic="workforce"><span class="when">2023</span><span><span class="t">Public health burnout: results from a 2023 Canadian public health workforce survey</span><span class="w">Public Health Ontario Rounds, Toronto · <a href="https://youtu.be/5sKhIEMs4YE" target="_blank" rel="noopener">Watch</a></span></span></li>
+          <li data-topic="chronic"><span class="when">2022</span><span><span class="t">Feasibility and implementation of a year-long Healthy Lifestyles Program: final evaluation and 6-month follow-up</span><span class="w">Canadian Collaborative Mental Health Care Conference, Quebec City</span></span></li>
         </ul>
       </section>
 
@@ -293,22 +319,86 @@ footer .links a:hover { color: var(--accent); }
 </main>
 <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
 <script>
-/* Live citation counts from OpenAlex (openalex.org), looked up by each paper's DOI */
-document.querySelectorAll('.pub .actions').forEach(function (row) {
-  var link = row.querySelector('a.chip[href*="doi.org/"]');
-  if (!link) return;
-  var doi = link.getAttribute('href').split('doi.org/')[1];
-  fetch('https://api.openalex.org/works/https://doi.org/' + doi + '?select=cited_by_count')
-    .then(function (r) { return r.ok ? r.json() : null; })
-    .then(function (d) {
-      if (!d || !d.cited_by_count) return;
-      var span = document.createElement('span');
-      span.className = 'cites';
-      span.textContent = 'Cited by ' + d.cited_by_count;
-      row.appendChild(span);
-    })
-    .catch(function () {});
-});
+(function () {
+  var articles = document.querySelectorAll('#articles .pub');
+  var talks = document.querySelectorAll('.talks li');
+  var stats = document.getElementById('stats');
+  var totalCites = 0, pending = 0;
+
+  /* First-author marker */
+  document.querySelectorAll('.pub').forEach(function (pub) {
+    var authors = pub.querySelector('.authors');
+    if (authors && authors.firstElementChild && authors.firstElementChild.tagName === 'B' &&
+        authors.innerHTML.trim().indexOf('<b>') === 0) {
+      pub.dataset.first = 'true';
+      var venue = pub.querySelector('.venue');
+      if (venue) {
+        var tag = document.createElement('span');
+        tag.className = 'first-tag';
+        tag.textContent = 'First author';
+        venue.appendChild(tag);
+      }
+    }
+  });
+
+  /* Summary line */
+  function renderStats() {
+    var parts = [articles.length + ' peer-reviewed articles', talks.length + ' presentations'];
+    if (totalCites > 0) parts.push(totalCites.toLocaleString() + ' citations');
+    stats.textContent = parts.join(' · ');
+  }
+  renderStats();
+
+  /* Live citation counts from OpenAlex, looked up by DOI */
+  document.querySelectorAll('.pub .actions').forEach(function (row) {
+    var link = row.querySelector('a.chip[href*="doi.org/"]');
+    if (!link) return;
+    var doi = link.getAttribute('href').split('doi.org/')[1];
+    pending++;
+    fetch('https://api.openalex.org/works/https://doi.org/' + doi + '?select=cited_by_count')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (d) {
+        if (!d || !d.cited_by_count) return;
+        totalCites += d.cited_by_count;
+        var span = document.createElement('span');
+        span.className = 'cites';
+        span.textContent = 'Cited by ' + d.cited_by_count;
+        row.appendChild(span);
+      })
+      .catch(function () {})
+      .then(function () { pending--; renderStats(); });
+  });
+
+  /* Filters */
+  var buttons = document.querySelectorAll('.filter');
+  var sections = document.querySelectorAll('#under-review, #articles, #presentations');
+  function matches(el, f) {
+    if (f === 'all') return true;
+    if (f === 'first') return el.dataset.first === 'true';
+    return el.dataset.topic === f;
+  }
+  function apply(f) {
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.filter === f ? 'true' : 'false'); });
+    document.querySelectorAll('.pub, .talks li').forEach(function (el) {
+      var show = matches(el, f);
+      if (f === 'first' && el.tagName === 'LI') show = false;
+      el.classList.toggle('is-hidden', !show);
+    });
+    document.querySelectorAll('.year-group').forEach(function (g) {
+      g.classList.toggle('is-hidden', !g.querySelector('.pub:not(.is-hidden)'));
+    });
+    var anyShown = false;
+    sections.forEach(function (sec) {
+      var has = !!sec.querySelector('.pub:not(.is-hidden), .talks li:not(.is-hidden)');
+      sec.classList.toggle('is-hidden', !has);
+      if (has) anyShown = true;
+    });
+    document.getElementById('filter-empty').classList.toggle('is-hidden', anyShown);
+  }
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.dataset.filter); });
+  });
+})();
 </script>
 </body>
 </html>
