@@ -181,6 +181,30 @@ footer .links a:hover { color: var(--accent); }
 /* Photo, centred between the menu and the headline */
 .headshot { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; display: block;
   margin: 0 auto 28px; box-shadow: 0 0 0 1px var(--hair); }
+/* Education and awards lists */
+.simple { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+.simple li { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 24px; }
+.simple .when { font-family: var(--font-display); font-size: 1.05rem; color: var(--soft); font-variant-numeric: tabular-nums; }
+.simple .t { font-weight: 500; }
+.simple .w { display: block; color: var(--soft); font-size: .9rem; }
+@media (max-width: 520px) { .simple li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Click-to-open sections */
+.fold > summary { list-style: none; cursor: pointer; position: relative; }
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary h2 { margin-bottom: 0; padding-right: 32px; }
+.fold > summary::after {
+  content: "+"; position: absolute; right: 2px; top: -6px;
+  font-family: var(--font-body); font-size: 1.35rem; font-weight: 400; color: var(--soft);
+  transition: transform .2s ease, color .15s ease;
+}
+.fold[open] > summary::after { transform: rotate(45deg); color: var(--accent); }
+.fold > summary:hover h2, .fold > summary:hover::after { color: var(--accent); }
+.fold > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 2px; }
+.fold[open] > summary { margin-bottom: 22px; }
+#education, #awards { margin-bottom: 36px; }
+.pubs-link { margin: 44px 0 40px; }
+
 @media (max-width: 600px) { .headshot { width: 116px; height: 116px; margin-bottom: 22px; } }
 
 @media (max-width: 600px) {
@@ -223,16 +247,39 @@ footer .links a:hover { color: var(--accent); }
         <div>
         <h2>About</h2>
         <div class="prose">
-  <p>I'm a PhD candidate in Epidemiology at McGill University, supervised by <a href="https://sites.google.com/view/erin-strumpf" target="_blank" rel="noopener">Professor Erin Strumpf</a>. My research explores inequalities in health and access to preventive care, particularly how access can be shaped by where people were born and where they live in Canada.</p>
+  <p>I'm an epidemiologist and PhD candidate at McGill University, working with <a href="https://sites.google.com/view/erin-strumpf" target="_blank" rel="noopener">Professor Erin Strumpf</a>. I study why some people get the preventive care they need and others don't, especially how where you were born and where you live in Canada shape access to care like cancer screening.</p>
 
-  <p>Before starting my PhD, I worked in applied epidemiology and program evaluation. At Niagara Region Public Health, I led the COVID-19 epidemiology portfolio, led the design of the region's community health surveys, and designed the evaluation of mass immunization clinics. At the Ontario HIV Treatment Network, I evaluated community-based HIV programs as well as supported community partners develop grant applications. I've also worked at the Public Health Agency of Canada and as a statistician at McMaster University's School of Nursing.</p>
+  <p>Before my PhD, I worked in public health practice: leading COVID-19 epidemiology at Niagara Region Public Health, evaluating community HIV programs at the Ontario HIV Treatment Network, and working at the Public Health Agency of Canada. That experience shapes the questions I ask now.</p>
 
-  <p>My doctoral research is supported by the Fonds de recherche du Québec and a Heather Munroe-Blum Studentship for Social Epidemiology (McGill University). I serve as the student representative on the board of the Canadian Society for Epidemiology and Biostatistics and contribute to its equity, diversity and inclusion working group. I hold an MPH and an MSc in Global Health from McMaster University.</p>
+  <p>I also represent students on the board of the Canadian Society for Epidemiology and Biostatistics, where I contribute to its equity, diversity and inclusion working group.</p>
 </div>
-        <p style="margin:28px 0 0"><a href="publications.html">See publications and presentations →</a></p>
         </div>
 </section>
 
+
+      <section id="education">
+        <details class="fold">
+        <summary><h2>Education</h2></summary>
+        <ul class="simple">
+          <li><span class="when">2023–</span><span><span class="t">PhD, Epidemiology</span><span class="w">McGill University</span></span></li>
+          <li><span class="when">2021</span><span><span class="t">Master of Public Health</span><span class="w">McMaster University</span></span></li>
+          <li><span class="when">2017</span><span><span class="t">MSc, Global Health</span><span class="w">McMaster University</span></span></li>
+        </ul>
+        </details>
+      </section>
+
+      <section id="awards">
+        <details class="fold">
+        <summary><h2>Awards and honours</h2></summary>
+        <ul class="simple">
+          <li><span class="when">2026</span><span><span class="t">Doctoral Research Award</span><span class="w">Fonds de recherche du Québec</span></span></li>
+          <li><span class="when">2025</span><span><span class="t">Heather Munroe-Blum Studentship for Social Epidemiology</span><span class="w">Faculty of Medicine and Health Sciences, McGill University</span></span></li>
+          <li><span class="when">2025</span><span><span class="t">Internal Studentship</span><span class="w">McGill University</span></span></li>
+        </ul>
+        </details>
+      </section>
+
+      <p class="pubs-link"><a href="publications.html">See publications and presentations →</a></p>
 
     <footer>
       <div class="links">
