@@ -178,8 +178,8 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 footer .links a { color: var(--soft); text-decoration: none; overflow-wrap: anywhere; }
 footer .links a:hover { color: var(--accent); }
 
-/* About with photo: photo on the left, vertically centred beside the text */
-.about-grid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 0 40px; align-items: center; }
+/* About with photo: photo on the left, level with the top of the About section */
+.about-grid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 0 40px; align-items: start; }
 .headshot { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; display: block; box-shadow: 0 0 0 1px var(--hair); }
 @media (max-width: 600px) {
   .about-grid { grid-template-columns: 1fr; }
