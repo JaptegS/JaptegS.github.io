@@ -19,6 +19,7 @@
   "@type": "Person",
   "name": "Japteg Singh",
   "url": "https://japteg.com/",
+  "image": "https://japteg.com/headshot.jpg",
   "jobTitle": "PhD Candidate in Epidemiology",
   "description": "Epidemiologist using quasi-experimental methods to study inequalities in health and access to care.",
   "affiliation": {
@@ -177,6 +178,15 @@ footer .links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 footer .links a { color: var(--soft); text-decoration: none; overflow-wrap: anywhere; }
 footer .links a:hover { color: var(--accent); }
 
+/* About with photo */
+.about-grid { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 0 36px; align-items: start; }
+.headshot { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; display: block; margin-top: 4px;
+  box-shadow: 0 0 0 1px var(--hair); }
+@media (max-width: 600px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .headshot { width: 120px; height: 120px; margin: 0 auto 24px; }
+}
+
 @media (max-width: 600px) {
   .topbar-inner { padding: 28px 20px 0; }
   .topbar nav { gap: 22px; }
@@ -211,6 +221,8 @@ footer .links a:hover { color: var(--accent); }
 
       <section id="about">
         <h2>About</h2>
+        <div class="about-grid">
+        <img class="headshot" src="headshot.jpg" alt="Japteg Singh" width="150" height="150">
         <div class="prose">
   <p>I'm a PhD candidate in Epidemiology at McGill University, supervised by <a href="https://sites.google.com/view/erin-strumpf" target="_blank" rel="noopener">Professor Erin Strumpf</a>. My research explores inequalities in health and access to preventive care, particularly how access can be shaped by where people were born and where they live in Canada.</p>
 
@@ -218,6 +230,7 @@ footer .links a:hover { color: var(--accent); }
 
   <p>My doctoral research is supported by the Fonds de recherche du Québec and a Heather Munroe-Blum Studentship for Social Epidemiology (McGill University). I serve as the student representative on the board of the Canadian Society for Epidemiology and Biostatistics and contribute to its equity, diversity and inclusion working group. I hold an MPH and an MSc in Global Health from McMaster University.</p>
 </div>
+        </div>
         <p style="margin:28px 0 0"><a href="publications.html">See publications and presentations →</a></p>
 </section>
 
